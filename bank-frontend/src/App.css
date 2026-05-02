@@ -1,0 +1,271 @@
+/* Dashboard Layout */
+.dashboard-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dashboard-nav .logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-links button {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-links button.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.logout-btn {
+  color: var(--neon-red) !important;
+}
+
+.dashboard-content {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Account View */
+.balance-card {
+  text-align: center;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(192, 132, 252, 0.1) 100%);
+}
+
+.balance-card .label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.balance-card .amount {
+  font-size: 3.5rem;
+  margin: 10px 0;
+  font-weight: 800;
+}
+
+.balance-card .acc-info {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .actions-grid { grid-template-columns: 1fr; }
+}
+
+.action-card h3 {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-group button {
+  flex: 1;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Cards Styles */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.glass-card {
+  height: 200px;
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-card.debit { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+.glass-card.credit { background: linear-gradient(135deg, #4c1d95 0%, #2e1065 100%); }
+
+.card-chip {
+  width: 45px;
+  height: 35px;
+  background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  border-radius: 6px;
+}
+
+.card-number {
+  font-size: 1.4rem;
+  letter-spacing: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 20px 0;
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-item .label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.detail-item .value {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.card-type-label {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-weight: 800;
+  font-style: italic;
+  opacity: 0.5;
+}
+
+.blocked-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--neon-red);
+  letter-spacing: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.card-actions {
+  margin-top: 15px;
+}
+
+.status-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.status-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* Loans Layout */
+.loan-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 30px;
+}
+
+.loan-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.loan-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.loan-type { font-weight: 700; }
+.loan-amount { color: var(--neon-green); font-weight: 800; }
+
+.loan-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Admin Table */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-table th, .admin-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.admin-table th {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.table-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.approve-btn { background: var(--neon-green); color: #0f172a; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+.reject-btn { background: var(--neon-red); color: #0f172a; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+
+/* Issue Buttons */
+.issue-buttons {
+  display: flex;
+  gap: 20px;
+  margin: 20px 0;
+}
