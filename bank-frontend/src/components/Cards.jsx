@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { getCards, issueCard, updateCardStatus } from '../api';
 
 function Cards({ user }) {
@@ -6,11 +6,7 @@ function Cards({ user }) {
     const [loading, setLoading] = useState(true);
     const accNo = user.accountNumber || user.accNo;
 
-    useEffect(() => {
-        if (accNo) fetchCards();
-    }, [accNo]);
-
-    const fetchCards = async () => {
+    const fetchCards = useCallback(async () => {
         try {
             const data = await getCards(accNo);
             setCards(data);
@@ -19,7 +15,11 @@ function Cards({ user }) {
         } finally {
             setLoading(false);
         }
-    };
+    }, [accNo]);
+
+    useEffect(() => {
+        if (accNo) fetchCards();
+    }, [accNo, fetchCards]);
 
     const handleIssueCard = async (type) => {
         try {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { getLoans, applyLoan } from '../api';
 
 function Loans({ user }) {
@@ -8,18 +8,18 @@ function Loans({ user }) {
     const [duration, setDuration] = useState('12');
     const accNo = user.accountNumber || user.accNo;
 
-    useEffect(() => {
-        if (accNo) fetchLoans();
-    }, [accNo]);
-
-    const fetchLoans = async () => {
+    const fetchLoans = useCallback(async () => {
         try {
             const data = await getLoans(accNo);
             setLoans(data);
         } catch (err) {
             console.error(err);
         }
-    };
+    }, [accNo]);
+
+    useEffect(() => {
+        if (accNo) fetchLoans();
+    }, [accNo, fetchLoans]);
 
     const handleApply = async (e) => {
         e.preventDefault();

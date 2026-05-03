@@ -59,15 +59,15 @@ Import the same GitHub repo into Vercel and set:
 
 ```text
 Root Directory: bank-frontend
-Framework Preset: Create React App
+Framework Preset: Vite
 Build Command: npm run build
-Output Directory: build
+Output Directory: dist
 ```
 
 Set this Vercel environment variable:
 
 ```text
-REACT_APP_API_BASE_URL=https://YOUR_RENDER_BACKEND_URL/api
+VITE_API_BASE_URL=https://YOUR_RENDER_BACKEND_URL/api
 ```
 
 Redeploy the frontend after setting the environment variable.
