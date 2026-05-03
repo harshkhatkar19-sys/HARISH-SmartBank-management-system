@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: harish-smart-bank-api
+    runtime: docker
+    rootDir: banking
+    plan: free
+    dockerfilePath: banking/Dockerfile
+    dockerContext: banking
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false

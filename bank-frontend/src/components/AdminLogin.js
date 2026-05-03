@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BASE_URL } from "../api";
 
 function AdminLogin({ setPage }) {
   const [username, setUsername] = useState("");
@@ -11,7 +12,7 @@ function AdminLogin({ setPage }) {
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch("http://localhost:8080/api/admin/login", {
+      const res = await fetch(`${BASE_URL}/admin/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
